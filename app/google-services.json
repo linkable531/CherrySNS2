@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1035845510249",
+    "project_id": "cherry-9636d",
+    "storage_bucket": "cherry-9636d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035845510249:android:619381f9165582279faef8",
+        "android_client_info": {
+          "package_name": "com.example.cherry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtZhp9gX5ly-suJl4IKmGWB3Zh7JuQRJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
