@@ -57,4 +57,13 @@ dependencies {
 
     //firebase-auth
     implementation("com.google.firebase:firebase-auth-ktx")
+
+    //firebase-realtime
+    implementation("com.google.firebase:firebase-database-ktx")
+
+    //firebase-storage
+    implementation("com.google.firebase:firebase-storage-ktx")
+
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

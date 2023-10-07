@@ -22,6 +22,8 @@
             android:textSize="50sp" />
 
 
+
+
         <EditText
             android:id="@+id/signup_name"
             android:layout_width="match_parent"
@@ -30,7 +32,6 @@
             android:ems="10"
             android:hint="이름"
             android:inputType="textPersonName" />
-
 
         <EditText
             android:id="@+id/signup_gender"
@@ -64,8 +65,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_height="50dp"
+
         android:orientation="horizontal">
 
         <Button
@@ -73,8 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Back"
             android:backgroundTint="#FF3399"
+            android:text="Back"
             android:textSize="18sp" />
 
         <Button
@@ -82,9 +83,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sign up"
             android:backgroundTint="#FF3399"
+            android:text="Sign up"
             android:textSize="18sp" />
-
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageArea"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:src="@drawable/profile_img" />
 </LinearLayout>

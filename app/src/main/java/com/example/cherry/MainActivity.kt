@@ -13,12 +13,23 @@ import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.CardStackView
 import com.yuyakaido.android.cardstackview.Direction
 import android.content.Intent
+import android.util.Log
 import android.widget.Toast
+import com.example.cherry.auth.UserDataModel
+import com.example.cherry.setting.MyPageActivity
+import com.example.cherry.setting.SettingActivity
+import com.example.cherry.utils.FirebaseRef
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var cardstackAdapter : CardStackAdapter
     lateinit var manager : CardStackLayoutManager
+
+    private var TAG=""
+    //control userdata
+    private val usersDataList= mutableListOf<UserDataModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +41,15 @@ class MainActivity : AppCompatActivity() {
             val auth= Firebase.auth
             auth.signOut()
 
-            val intent=Intent(this,IntroActivity::class.java)
-            startActivity(intent)
+            val intent_intro=Intent(this,IntroActivity::class.java)
+            startActivity(intent_intro)
+        }
+
+        //setting option
+        val mypage=findViewById<ImageView>(R.id.mypage)
+        mypage.setOnClickListener{
+            val intent_setting=Intent(this, SettingActivity::class.java)
+            startActivity(intent_setting)
         }
 
         //cardstackview
@@ -62,16 +80,34 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-        
-        //test case
-        val testList = mutableListOf<String>()
-        testList.add("a")
-        testList.add("b")
-        testList.add("c")
 
         //adapter accept
-        cardstackAdapter=CardStackAdapter(baseContext,testList)
+        cardstackAdapter=CardStackAdapter(baseContext,usersDataList)
         cardStackView.layoutManager=manager
         cardStackView.adapter=cardstackAdapter
+
+        //show card in cardstackview
+        getUserDataList()
+    }
+
+    private fun getUserDataList(){
+        val postListener = object : ValueEventListener {
+            //dataSnapshot : firebase instore data
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                //show one by one(cardstackview)
+                //key -> uid, value -> other data
+                for (dataModel in dataSnapshot.children){
+                    val user = dataModel.getValue(UserDataModel::class.java)
+                    usersDataList.add(user!!)
+                }
+                //sync_adapter
+                cardstackAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        }
+        FirebaseRef.userInfoRef.addValueEventListener(postListener)
     }
 }

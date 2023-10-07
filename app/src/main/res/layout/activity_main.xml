@@ -23,6 +23,17 @@
         tools:layout_editor_absoluteX="48dp">
 
         <ImageView
+            android:id="@+id/mypage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="164dp"
+            android:src="@drawable/profile_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
             android:id="@+id/logout"
             android:layout_width="80dp"
             android:layout_height="80dp"

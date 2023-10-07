@@ -11,8 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
 
-    private val TAG=""
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -38,6 +36,5 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }, 3000)
         }
-
     }
 }
