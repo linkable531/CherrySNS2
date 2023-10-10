@@ -22,11 +22,31 @@
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="48dp">
 
+        <Button
+            android:id="@+id/filter_samelocation"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="같은 지역"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/filter_alllocation"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="88dp"
+            android:text="모든 지역"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
         <ImageView
             android:id="@+id/mypage"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginEnd="164dp"
+            android:layout_marginEnd="80dp"
             android:src="@drawable/profile_img"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

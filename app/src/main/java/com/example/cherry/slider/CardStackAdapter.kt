@@ -36,6 +36,7 @@ class CardStackAdapter(val context : Context, val items : List<UserDataModel>) :
         val name=itemView.findViewById<TextView>(R.id.itemName)
         val gender=itemView.findViewById<TextView>(R.id.itemGender)
         val city=itemView.findViewById<TextView>(R.id.itemCity)
+        val age=itemView.findViewById<TextView>(R.id.itemAge)
 
         //how to show
         fun binding(data : UserDataModel){
@@ -56,6 +57,7 @@ class CardStackAdapter(val context : Context, val items : List<UserDataModel>) :
             name.text=data.name
             gender.text=data.gender
             city.text=data.location
+            age.text=data.age
         }
     }
 }

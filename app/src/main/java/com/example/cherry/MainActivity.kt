@@ -20,6 +20,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
     private val uid = FirebaseUtils.getUid()
 
     private lateinit var UserGender : String
+    private lateinit var UserLocation : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -68,6 +71,18 @@ class MainActivity : AppCompatActivity() {
         mypage.setOnClickListener{
             val intent_setting=Intent(this, SettingActivity::class.java)
             startActivity(intent_setting)
+        }
+
+        //set cardstackview same location
+        val sameLocationBtn=findViewById<Button>(R.id.filter_samelocation)
+        sameLocationBtn.setOnClickListener {
+            setFilterSameLocation()
+        }
+
+        //set cardstackview all location
+        val allLocationBtn=findViewById<Button>(R.id.filter_alllocation)
+        allLocationBtn.setOnClickListener {
+            getUserDataList(UserGender)
         }
 
         //cardstackview
@@ -118,6 +133,18 @@ class MainActivity : AppCompatActivity() {
         getMyUserData()
     }
 
+    //set cardlistview samelocation
+    private fun setFilterSameLocation() {
+        val filteredUsersDataList = usersDataList.filter { it.location == UserLocation }.toMutableList()
+
+        usersDataList.clear()
+        usersDataList.addAll(filteredUsersDataList)
+
+        //sync_adapter
+        cardstackAdapter.notifyDataSetChanged()
+    }
+
+
     //user's like log
     private fun userLikeOtherUser(myUid : String , otherUid: String){
         //instore firebase
@@ -158,6 +185,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val data = dataSnapshot.getValue(UserDataModel::class.java)
                 UserGender = data?.gender.toString()
+                UserLocation = data?.location.toString()
 
                 //show card in cardstackview
                 getUserDataList(UserGender)
