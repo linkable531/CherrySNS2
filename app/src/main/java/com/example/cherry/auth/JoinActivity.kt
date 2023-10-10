@@ -59,6 +59,8 @@ class JoinActivity : AppCompatActivity() {
             val password=findViewById<EditText>(R.id.signup_pw).text.toString()
             val gender=findViewById<EditText>(R.id.signup_gender).text.toString()
             val name=findViewById<EditText>(R.id.signup_name).text.toString()
+            val location=findViewById<EditText>(R.id.signup_location).text.toString()
+            val age=findViewById<EditText>(R.id.signup_age).text.toString()
 
             //new_account
             auth.createUserWithEmailAndPassword(email,password)
@@ -76,7 +78,9 @@ class JoinActivity : AppCompatActivity() {
                             gender,
                             email,
                             password,
-                            name
+                            name,
+                            location,
+                            age
                         )
 
                         FirebaseRef.userInfoRef.child(uid).setValue(userModel)
@@ -100,7 +104,6 @@ class JoinActivity : AppCompatActivity() {
         val storage = Firebase.storage
         val storageRef = storage.reference.child(uid + ".png")
 
-        Toast.makeText(this, "가동", Toast.LENGTH_SHORT).show()
         // Get the data from an ImageView as bytes
 
         profileImage.isDrawingCacheEnabled = true

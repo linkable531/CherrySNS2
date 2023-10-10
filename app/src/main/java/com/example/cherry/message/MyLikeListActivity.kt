@@ -1,11 +1,15 @@
 package com.example.cherry.message
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
+import com.example.cherry.MainActivity
 import com.example.cherry.R
 import com.example.cherry.auth.UserDataModel
+import com.example.cherry.setting.SettingActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
 import com.google.firebase.database.DataSnapshot
@@ -39,6 +43,37 @@ class MyLikeListActivity : AppCompatActivity() {
         userListView.setOnItemClickListener { parent,view,position,id ->
             checkMatching(likeUserList[position].uid.toString())
         }
+
+        //sort by name
+        val sortBtnByName = findViewById<Button>(R.id.sortbyname)
+        sortBtnByName.setOnClickListener{
+            sortbyname()
+        }
+
+        //sort by age
+        val sortBtnByAge = findViewById<Button>(R.id.sortbyage)
+        sortBtnByAge.setOnClickListener{
+            sortbyage()
+        }
+
+        //back
+        val backBtn = findViewById<Button>(R.id.back)
+        backBtn.setOnClickListener{
+            val intent_setting = Intent(this, SettingActivity::class.java)
+            startActivity(intent_setting)
+        }
+    }
+
+    //sort by name
+    private fun sortbyname(){
+        likeUserList.sortBy{it.name}
+        listViewAdapter.notifyDataSetChanged()
+    }
+
+    //sort by age
+    private fun sortbyage(){
+        likeUserList.sortBy{it.age}
+        listViewAdapter.notifyDataSetChanged()
     }
 
     private fun checkMatching(otherUid : String){
@@ -53,19 +88,26 @@ class MyLikeListActivity : AppCompatActivity() {
                 }
                 //if liker hava data
                 else {
+                    var check_matching = false
                     for (dataModel in dataSnapshot.children) {
                         //check matching
-                        if (dataModel.key.toString().equals(uid)) {
-                            Toast.makeText(this@MyLikeListActivity, "매칭된 상대입니다!", Toast.LENGTH_LONG)
-                                .show()
-                        } else {
-                            Toast.makeText(
-                                this@MyLikeListActivity,
-                                "매칭된 상대가 아닙니다!",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+                        if(dataModel.key.toString().equals(uid))
+                            check_matching=true
                     }
+
+                    //make matching message by result
+                    if(check_matching){
+                        Toast.makeText(this@MyLikeListActivity, "매칭된 상대입니다!", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                    else{
+                        Toast.makeText(
+                            this@MyLikeListActivity,
+                            "매칭된 상대가 아닙니다!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
@@ -74,6 +116,7 @@ class MyLikeListActivity : AppCompatActivity() {
         }
         FirebaseRef.userLikeRef.child(otherUid).addValueEventListener(postListener)
     }
+
     //person who i like
     private fun getMyLikeList(){
         val postListener = object : ValueEventListener {

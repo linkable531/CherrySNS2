@@ -5,5 +5,7 @@ data class UserDataModel (
     val gender:String? =null,
     val email:String?=null,
     val password:String?=null,
-    val name:String?=null
+    val name:String?=null,
+    val location:String?=null,
+    val age:String?=null
 )

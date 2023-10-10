@@ -48,7 +48,6 @@ class CardStackAdapter(val context : Context, val items : List<UserDataModel>) :
                     Glide.with(context)
                         .load(task.result)
                         .into(image)
-
                 }
 
             })
@@ -56,7 +55,7 @@ class CardStackAdapter(val context : Context, val items : List<UserDataModel>) :
             //init text
             name.text=data.name
             gender.text=data.gender
-            city.text="역북점"
+            city.text=data.location
         }
     }
 }

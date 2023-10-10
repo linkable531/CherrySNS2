@@ -36,6 +36,10 @@ class ListViewAdapter(val context: Context, val items : MutableList<UserDataMode
         val name = convertView!!.findViewById<TextView>(R.id.name)
         name.text=items[position].name
 
+        //can see liker's age in listview
+        val age=convertView!!.findViewById<TextView>(R.id.age)
+        age.text=items[position].age
+
         return convertView!!
     }
 }

@@ -22,13 +22,11 @@
             android:textSize="50sp" />
 
 
-
-
         <EditText
             android:id="@+id/signup_name"
-            android:layout_width="match_parent"
+            android:layout_width="459dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="이름"
             android:inputType="textPersonName" />
@@ -37,16 +35,34 @@
             android:id="@+id/signup_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="성별"
+            android:hint="성별(M or W)"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/signup_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="촬영지점"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/signup_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="나이"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/signup_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="E-mail"
             android:inputType="textPersonName" />
@@ -55,7 +71,7 @@
             android:id="@+id/signup_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="PASSWORD"
             android:inputType="textPersonName" />
