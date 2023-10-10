@@ -144,7 +144,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
 
             }
@@ -158,7 +157,6 @@ class MainActivity : AppCompatActivity() {
             //dataSnapshot : firebase instore data
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val data = dataSnapshot.getValue(UserDataModel::class.java)
-
                 UserGender = data?.gender.toString()
 
                 //show card in cardstackview
@@ -169,6 +167,8 @@ class MainActivity : AppCompatActivity() {
         }
         FirebaseRef.userInfoRef.child(uid).addValueEventListener(postListener)
     }
+
+    //get all user's data
     private fun getUserDataList(CurrentUserGender : String){
         val postListener = object : ValueEventListener {
             //dataSnapshot : firebase instore data
