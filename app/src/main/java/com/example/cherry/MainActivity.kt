@@ -31,6 +31,7 @@ import com.example.cherry.setting.MyPageActivity
 import com.example.cherry.setting.SettingActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
+import com.example.cherry.utils.MyInfo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -186,6 +187,8 @@ class MainActivity : AppCompatActivity() {
                 val data = dataSnapshot.getValue(UserDataModel::class.java)
                 UserGender = data?.gender.toString()
                 UserLocation = data?.location.toString()
+
+                MyInfo.myNickname=data?.name.toString()
 
                 //show card in cardstackview
                 getUserDataList(UserGender)

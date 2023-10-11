@@ -3,15 +3,19 @@ package com.example.cherry.message
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.cherry.MainActivity
 import com.example.cherry.R
 import com.example.cherry.auth.UserDataModel
 import com.example.cherry.setting.SettingActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
+import com.example.cherry.utils.MyInfo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -26,6 +30,9 @@ class MyLikeListActivity : AppCompatActivity() {
     private val likeUserList= mutableListOf<UserDataModel>()
 
     lateinit var listViewAdapter : ListViewAdapter
+
+    //reciever's uid
+    lateinit var getterUid : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_like_list)
@@ -38,12 +45,21 @@ class MyLikeListActivity : AppCompatActivity() {
 
         //person who i like
         getMyLikeList()
-
+        /*
         //if click textview, check matching
         userListView.setOnItemClickListener { parent,view,position,id ->
             checkMatching(likeUserList[position].uid.toString())
         }
 
+        */
+
+        //listview longclick
+        userListView.setOnItemLongClickListener { parent,view,position,id ->
+            checkMatching(likeUserList[position].uid.toString())
+            getterUid = likeUserList[position].uid.toString()
+
+            return@setOnItemLongClickListener(true)
+        }
         //sort by name
         val sortBtnByName = findViewById<Button>(R.id.sortbyname)
         sortBtnByName.setOnClickListener{
@@ -84,7 +100,7 @@ class MyLikeListActivity : AppCompatActivity() {
 
                 //if liker is empty
                 if(dataSnapshot.children.count() == 0){
-                    Toast.makeText(this@MyLikeListActivity, "매칭된 상대가 아닙니다!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MyLikeListActivity, "상대방이 좋아한 사용자가 없습니다!", Toast.LENGTH_SHORT).show()
                 }
                 //if liker hava data
                 else {
@@ -97,14 +113,17 @@ class MyLikeListActivity : AppCompatActivity() {
 
                     //make matching message by result
                     if(check_matching){
-                        Toast.makeText(this@MyLikeListActivity, "매칭된 상대입니다!", Toast.LENGTH_LONG)
+                        Toast.makeText(this@MyLikeListActivity, "매칭된 상대입니다!", Toast.LENGTH_SHORT)
                             .show()
+
+                        //dialog
+                        showDialog()
                     }
                     else{
                         Toast.makeText(
                             this@MyLikeListActivity,
                             "매칭된 상대가 아닙니다!",
-                            Toast.LENGTH_LONG
+                            Toast.LENGTH_SHORT
                         ).show()
                     }
 
@@ -159,5 +178,27 @@ class MyLikeListActivity : AppCompatActivity() {
 
         //get resource from
         FirebaseRef.userInfoRef.addValueEventListener(postListener)
+    }
+
+    //Dialog
+    private fun showDialog(){
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.custom_dialog,null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setTitle("메시지 보내기")
+
+        val mAlertDialog = mBuilder.show()
+
+        val btn = mAlertDialog.findViewById<Button>(R.id.sendBtnArea)
+        val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
+        btn?.setOnClickListener {
+            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString())
+
+            //send msginfo to firebase
+            FirebaseRef.userMsgRef.child(getterUid).push().setValue(mgsModel)
+
+            //off dialog
+            mAlertDialog.dismiss()
+        }
     }
 }

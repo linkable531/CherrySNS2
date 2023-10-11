@@ -40,17 +40,14 @@ class CardStackAdapter(val context : Context, val items : List<UserDataModel>) :
 
         //how to show
         fun binding(data : UserDataModel){
-
             //init card image
             val storageRef = Firebase.storage.reference.child(data.uid + ".png")
             storageRef.downloadUrl.addOnCompleteListener(OnCompleteListener { task ->
-
                 if(task.isSuccessful) {
                     Glide.with(context)
                         .load(task.result)
                         .into(image)
                 }
-
             })
 
             //init text
