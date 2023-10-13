@@ -1,12 +1,3 @@
 <resources>
     <string name="app_name">Cherry</string>
-
-    <string name="ek_img_content">ExportKit Image</string>
-    <string name="full_name_string">Full Name</string>
-    <string name="email_string">Email</string>
-    <string name="social_url_string">Social URL</string>
-    <string name="time_string">9:41</string>
-    <string name="discover_string">Profile</string>
-    <string name="about__string">About</string>
-
 </resources>
