@@ -27,6 +27,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.bumptech.glide.Glide
 import com.example.cherry.auth.UserDataModel
+import com.example.cherry.message.MyMsgActivity
 import com.example.cherry.setting.MyPageActivity
 import com.example.cherry.setting.SettingActivity
 import com.example.cherry.utils.FirebaseRef
@@ -74,14 +75,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent_setting)
         }
 
+        //chatting option
+        val chatting=findViewById<ImageView>(R.id.chatting)
+        chatting.setOnClickListener{
+            val intent_chatting=Intent(this, MyMsgActivity::class.java)
+            startActivity(intent_chatting)
+        }
+
         //set cardstackview same location
-        val sameLocationBtn=findViewById<Button>(R.id.filter_samelocation)
+        val sameLocationBtn=findViewById<ImageView>(R.id.filter_samelocation)
         sameLocationBtn.setOnClickListener {
             setFilterSameLocation()
         }
 
         //set cardstackview all location
-        val allLocationBtn=findViewById<Button>(R.id.filter_alllocation)
+        val allLocationBtn=findViewById<ImageView>(R.id.filter_allocation)
         allLocationBtn.setOnClickListener {
             getUserDataList(UserGender)
         }

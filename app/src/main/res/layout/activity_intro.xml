@@ -5,77 +5,69 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+
+
+        android:background="@drawable/cherry_main" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="300dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/logintext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center_horizontal"
-            android:text="LOG IN"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:textStyle="bold" />
-
         <EditText
             android:id="@+id/editID"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:background="@drawable/id_input"
+            android:layout_width="279dp"
+            android:layout_height="43dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-
+            android:hint="  Email"
             android:ems="10"
-            android:hint="이메일"
             android:inputType="textPersonName"
             android:text="" />
 
         <EditText
             android:id="@+id/ediPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="279dp"
+            android:layout_height="43dp"
+            android:background="@drawable/id_input"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="비밀번호"
+            android:hint="  비밀번호"
             android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="26dp"
+            android:layout_height="40dp"
             android:orientation="horizontal"></LinearLayout>
 
-        <Button
+        <ImageView
             android:id="@+id/button2"
-            android:layout_width="match_parent"
+            android:layout_width="218dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF3399"
-            android:text="Log In"
+            android:layout_gravity="center"
+            android:background="@drawable/login_btn"
             android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="15dp"
+            android:layout_height="30dp"
             android:orientation="horizontal"></LinearLayout>
 
-        <Button
+        <ImageView
             android:id="@+id/signin"
-            android:backgroundTint="#FF3399"
-            android:layout_width="wrap_content"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="SIGN UP"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="@drawable/signup_btn" />
 
         <TextView
             android:id="@+id/textView4"

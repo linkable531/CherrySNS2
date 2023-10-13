@@ -33,7 +33,7 @@ class JoinActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        profileImage=findViewById<ImageView>(R.id.imageArea)
+        profileImage=findViewById<ImageView>(R.id.ImageArea)
 
         val getAction = registerForActivityResult(
             ActivityResultContracts.GetContent(),
@@ -47,13 +47,13 @@ class JoinActivity : AppCompatActivity() {
         }
 
         //back button
-        val backBtn=findViewById<Button>(R.id.button6)
+        val backBtn=findViewById<ImageView>(R.id.button6)
         backBtn.setOnClickListener{
             finish()
         }
 
         //회원가입btn_press
-        val joinBtn=findViewById<Button>(R.id.button7)
+        val joinBtn=findViewById<ImageView>(R.id.button7)
         joinBtn.setOnClickListener{
             val email=findViewById<EditText>(R.id.signup_Email).text.toString()
             val password=findViewById<EditText>(R.id.signup_pw).text.toString()

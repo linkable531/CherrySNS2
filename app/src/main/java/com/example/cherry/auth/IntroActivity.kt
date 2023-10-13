@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import android.Manifest
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.cherry.MainActivity
@@ -41,13 +42,13 @@ class IntroActivity : AppCompatActivity() {
             launcher.launch(notificationPermission)
         }
 
-        val joinBtn=findViewById<Button>(R.id.signin)
+        val joinBtn=findViewById<ImageView>(R.id.signin)
         joinBtn.setOnClickListener{
             val intent_join= Intent(this,JoinActivity::class.java)
             startActivity(intent_join)
         }
 
-        val loginBtn=findViewById<Button>(R.id.button2)
+        val loginBtn=findViewById<ImageView>(R.id.button2)
         loginBtn.setOnClickListener{
             val id: String =findViewById<EditText>(R.id.editID).text.toString()
             //비밀번호를 프런트에서 가져온다
