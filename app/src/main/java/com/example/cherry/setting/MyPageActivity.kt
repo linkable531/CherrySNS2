@@ -30,8 +30,8 @@ class MyPageActivity : AppCompatActivity() {
     //get my data form firebase
     private fun getMyData(){
         val myImage =findViewById<ImageView>(R.id.myImage)
-        val myuid = findViewById<TextView>(R.id.myUid)
-        val gender=findViewById<TextView>(R.id.mygender)
+        val myemail = findViewById<TextView>(R.id.myemail)
+        val location=findViewById<TextView>(R.id.mylocation)
         val name=findViewById<TextView>(R.id.myname)
 
         val postListener = object : ValueEventListener {
@@ -40,9 +40,9 @@ class MyPageActivity : AppCompatActivity() {
                 val data = dataSnapshot.getValue(UserDataModel::class.java)
 
                 //get text
-                myuid.text=uid
+                myemail.text=data!!.email
                 name.text=data!!.name
-                gender.text=data!!.gender
+                location.text=data!!.location
 
                 //get image
                 val storageRef = Firebase.storage.reference.child(data.uid + ".png")
