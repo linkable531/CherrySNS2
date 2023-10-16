@@ -19,17 +19,26 @@
             android:layout_height="wrap_content"
             android:hint="이름"/>
 
-        <Button
+        <ImageView
             android:id="@+id/search_button"
-            android:layout_width="80dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/find"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="검색"/>
+            />
     </LinearLayout>
 
     <ListView
         android:id="@+id/msgListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="600dp" />
+
+    <ImageView
+        android:id="@+id/back_my_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"/>
 
 </com.google.android.material.appbar.AppBarLayout>

@@ -1,12 +1,14 @@
 package com.example.cherry.message
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 import com.example.cherry.R
 import com.example.cherry.auth.UserDataModel
@@ -17,6 +19,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.cherry.MainActivity
 import com.example.cherry.utils.MyInfo
 import com.example.cherry.message.MyLikeListActivity
 
@@ -38,9 +41,16 @@ class MyMsgActivity : AppCompatActivity() {
         getMyMsg()
 
         //search
-        val searchBtn = findViewById<Button>(R.id.search_button)
+        val searchBtn = findViewById<ImageView>(R.id.search_button)
         searchBtn.setOnClickListener{
             searchUser()
+        }
+
+        //back
+        val backBtn=findViewById<ImageView>(R.id.back_my_msg)
+        backBtn.setOnClickListener{
+            val intent_main = Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
         }
     }
 
@@ -105,7 +115,7 @@ class MyMsgActivity : AppCompatActivity() {
 
         val mAlertDialog = mBuilder.show()
 
-        val btn = mAlertDialog.findViewById<Button>(R.id.sendBtnArea)
+        val btn = mAlertDialog.findViewById<ImageView>(R.id.sendBtnArea)
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
             val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString())

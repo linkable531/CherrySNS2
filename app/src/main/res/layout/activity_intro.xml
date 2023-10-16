@@ -3,33 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    >
 
     <ImageView
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-
-
-        android:background="@drawable/cherry_main" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cherry_icon_with_word"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="100dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="330dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
         <EditText
             android:id="@+id/editID"
-            android:background="@drawable/id_input"
             android:layout_width="279dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:hint="  Email"
+            android:background="@drawable/id_input"
             android:ems="10"
+            android:hint="  Email"
             android:inputType="textPersonName"
             android:text="" />
 
@@ -37,8 +37,8 @@
             android:id="@+id/ediPassword"
             android:layout_width="279dp"
             android:layout_height="43dp"
-            android:background="@drawable/id_input"
             android:layout_gravity="center"
+            android:background="@drawable/id_input"
             android:ems="10"
             android:hint="  비밀번호"
             android:inputType="textPassword" />
@@ -79,6 +79,13 @@
             android:textAlignment="center"
             android:textSize="18dp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/cherry_splash_icon" />
 
     </LinearLayout>
 </FrameLayout>

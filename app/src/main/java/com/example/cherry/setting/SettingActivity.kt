@@ -11,6 +11,7 @@ import com.example.cherry.message.MyMsgActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+//setting activity 는 도입 전에 기능 및 엑티비티 도입 전에 사용하는 엑티비티입니다.
 class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

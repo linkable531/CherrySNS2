@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -61,22 +62,22 @@ class MyLikeListActivity : AppCompatActivity() {
             return@setOnItemLongClickListener(true)
         }
         //sort by name
-        val sortBtnByName = findViewById<Button>(R.id.sortbyname)
+        val sortBtnByName = findViewById<ImageView>(R.id.sortbyname)
         sortBtnByName.setOnClickListener{
             sortbyname()
         }
 
         //sort by age
-        val sortBtnByAge = findViewById<Button>(R.id.sortbyage)
+        val sortBtnByAge = findViewById<ImageView>(R.id.sortbyage)
         sortBtnByAge.setOnClickListener{
             sortbyage()
         }
 
         //back
-        val backBtn = findViewById<Button>(R.id.back)
+        val backBtn = findViewById<ImageView>(R.id.back)
         backBtn.setOnClickListener{
-            val intent_setting = Intent(this, SettingActivity::class.java)
-            startActivity(intent_setting)
+            val intent_main = Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
         }
     }
 
@@ -189,7 +190,7 @@ class MyLikeListActivity : AppCompatActivity() {
 
         val mAlertDialog = mBuilder.show()
 
-        val btn = mAlertDialog.findViewById<Button>(R.id.sendBtnArea)
+        val btn = mAlertDialog.findViewById<ImageView>(R.id.sendBtnArea)
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
             val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString())

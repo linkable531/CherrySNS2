@@ -7,8 +7,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.cherry.MainActivity
 import com.example.cherry.R
 import com.example.cherry.auth.UserDataModel
+import com.example.cherry.message.MyLikeListActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
 import com.google.android.gms.tasks.OnCompleteListener
@@ -23,6 +25,20 @@ class MyPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
+
+        //mylike btn
+        val mylikeBtn = findViewById<ImageView>(R.id.mylikeBtn_mypage)
+        mylikeBtn.setOnClickListener{
+            val intent=Intent(this, MyLikeListActivity::class.java)
+            startActivity(intent)
+        }
+
+        //back btn
+        val mybackBtn = findViewById<ImageView>(R.id.backBtn_mypage)
+        mybackBtn.setOnClickListener{
+            val intent_main=Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
+        }
 
         getMyData()
     }

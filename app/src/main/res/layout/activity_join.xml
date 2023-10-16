@@ -13,14 +13,12 @@
         android:layout_weight="1.5"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sign up"
-            android:textSize="50sp" />
-
+        <ImageView
+            android:layout_marginLeft="130dp"
+            android:layout_width="144dp"
+            android:layout_height="147dp"
+            android:background="@drawable/cherry_icon"
+            android:gravity="center" />
 
         <EditText
             android:id="@+id/signup_name"
@@ -90,7 +88,7 @@
 
             <ImageView
                 android:id="@+id/button6"
-                android:layout_width="83dp"
+                android:layout_width="130dp"
                 android:layout_height="57dp"
                 android:layout_gravity="center"
                 android:background="@drawable/backbtn" />
@@ -109,6 +107,6 @@
     <ImageView
         android:id="@+id/ImageArea"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
+        android:layout_height="120dp"
         android:src="@drawable/profile_img" />
 </LinearLayout>

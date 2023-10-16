@@ -68,11 +68,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent_intro)
         }
 
-        //setting option
+        //mypage option
         val mypage=findViewById<ImageView>(R.id.mypage)
         mypage.setOnClickListener{
-            val intent_setting=Intent(this, SettingActivity::class.java)
-            startActivity(intent_setting)
+            val intent_mypage=Intent(this, MyPageActivity::class.java)
+            startActivity(intent_mypage)
         }
 
         //chatting option
