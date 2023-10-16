@@ -193,7 +193,7 @@ class MyLikeListActivity : AppCompatActivity() {
         val btn = mAlertDialog.findViewById<ImageView>(R.id.sendBtnArea)
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
-            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString())
+            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString(),uid)
 
             //send msginfo to firebase
             FirebaseRef.userMsgRef.child(getterUid).push().setValue(mgsModel)

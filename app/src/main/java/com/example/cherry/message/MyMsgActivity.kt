@@ -27,6 +27,7 @@ class MyMsgActivity : AppCompatActivity() {
     lateinit var listViewAdapter : MsgAdapter
     val msgList = mutableListOf<MsgModel>()
     lateinit var getterUid : String
+    private val uid=FirebaseUtils.getUid()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_msg)
@@ -118,7 +119,7 @@ class MyMsgActivity : AppCompatActivity() {
         val btn = mAlertDialog.findViewById<ImageView>(R.id.sendBtnArea)
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
-            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString())
+            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString(),uid)
 
             //send msginfo to firebase
             FirebaseRef.userMsgRef.child(getterUid).push().setValue(mgsModel)
