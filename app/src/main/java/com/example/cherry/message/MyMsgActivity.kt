@@ -26,6 +26,7 @@ import com.example.cherry.message.MyLikeListActivity
 class MyMsgActivity : AppCompatActivity() {
     lateinit var listViewAdapter : MsgAdapter
     val msgList = mutableListOf<MsgModel>()
+    val nameMap = HashMap<String, String>()
     lateinit var getterUid : String
     private val uid=FirebaseUtils.getUid()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +67,9 @@ class MyMsgActivity : AppCompatActivity() {
                 for (dataModel in dataSnapshot.children){
                     val msg = dataModel.getValue(MsgModel::class.java)
                     msgList.add(msg!!)
+
+                    nameMap.put( msg.senderInfo,msg.senderUid)
+
                 }
                 listViewAdapter.notifyDataSetChanged()
             }
@@ -86,20 +90,21 @@ class MyMsgActivity : AppCompatActivity() {
             .setPositiveButton("확인") { dialogInterface, i -> }
         val targetName : String = searchEditText.text.toString()
 
-        val index : Int? = msgList.binarySearch { String.CASE_INSENSITIVE_ORDER.compare(it.senderInfo, targetName) }
+        if(nameMap.containsKey(targetName)){
+            getterUid = nameMap[targetName]!!
 
-        //cant find
-        if(index == -1) {
-            msgBuilder.setTitle("검색 오류")
-            msgBuilder.setMessage("이름을 찾을 수 없습니다")
-        }
-        //find
-        else {
             msgBuilder.setTitle("검색 성공")
             msgBuilder.setMessage(targetName + "님을 찾았습니다")
             msgBuilder.setPositiveButton("메시지 보내기", DialogInterface.OnClickListener(){ dialogInterface, i ->
                 showDialog()
             })
+            //dialog
+            val msgDlg: AlertDialog = msgBuilder.create()
+            msgDlg.show()
+        }
+        else{
+            msgBuilder.setTitle("검색 오류")
+            msgBuilder.setMessage("이름을 찾을 수 없습니다")
         }
 
         //dialog
@@ -120,9 +125,8 @@ class MyMsgActivity : AppCompatActivity() {
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
             val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString(),uid)
-
             //send msginfo to firebase
-            FirebaseRef.userMsgRef.child(getterUid).push().setValue(mgsModel)
+            FirebaseRef.userMsgRef.child(getterUid!!).push().setValue(mgsModel)
 
             //off dialog
             mAlertDialog.dismiss()
