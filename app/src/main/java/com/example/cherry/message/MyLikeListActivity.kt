@@ -20,6 +20,7 @@ import com.example.cherry.utils.MyInfo
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import java.util.UUID
 
 //matching list
 class MyLikeListActivity : AppCompatActivity() {
@@ -73,6 +74,18 @@ class MyLikeListActivity : AppCompatActivity() {
             sortbyage()
         }
 
+        //sort by name down
+        val sortBtnByNameDown = findViewById<ImageView>(R.id.sortbynameDown)
+        sortBtnByNameDown.setOnClickListener{
+            sortbynamedown()
+        }
+
+        //sort by age down
+        val sortBtnByAgeDown = findViewById<ImageView>(R.id.sortbyageDown)
+        sortBtnByAgeDown.setOnClickListener{
+            sortbyagedown()
+        }
+
         //back
         val backBtn = findViewById<ImageView>(R.id.back)
         backBtn.setOnClickListener{
@@ -80,6 +93,19 @@ class MyLikeListActivity : AppCompatActivity() {
             startActivity(intent_main)
         }
     }
+
+    //sort by name down
+    private fun sortbynamedown(){
+        likeUserList.sortByDescending{it.name}
+        listViewAdapter.notifyDataSetChanged()
+    }
+
+    //sort by age down
+    private fun sortbyagedown(){
+        likeUserList.sortByDescending{it.age}
+        listViewAdapter.notifyDataSetChanged()
+    }
+
 
     //sort by name
     private fun sortbyname(){
@@ -193,11 +219,18 @@ class MyLikeListActivity : AppCompatActivity() {
         val btn = mAlertDialog.findViewById<ImageView>(R.id.sendBtnArea)
         val textArea = mAlertDialog.findViewById<EditText>(R.id.sendTextArea)
         btn?.setOnClickListener {
-            val mgsModel = MsgModel(MyInfo.myNickname,textArea!!.text.toString(),uid)
-
-            //send msginfo to firebase
-            FirebaseRef.userMsgRef.child(getterUid).push().setValue(mgsModel)
-
+            var messageUid = UUID.randomUUID().toString()
+            if (messageUid != null) {
+                val mgsModel = MsgModel(
+                    MyInfo.myNickname,
+                    textArea!!.text.toString(),
+                    uid,
+                    messageUid
+                )
+                //send msginfo to firebase
+                FirebaseRef.userMsgRef.child(getterUid!!).child(messageUid)
+                    .setValue(mgsModel)
+            }
             //off dialog
             mAlertDialog.dismiss()
         }

@@ -27,15 +27,15 @@ class MsgAdapter(val context: Context, val items : MutableList<MsgModel>) : Base
         //item connect
         var convertView = convertView
         if (convertView == null) {
-            convertView = LayoutInflater.from(parent?.context).inflate(R.layout.list_view_item, parent, false)
+            convertView = LayoutInflater.from(parent?.context).inflate(R.layout.msg_list_view_item, parent, false)
         }
 
         //can see liker's name in listview
-        val name = convertView!!.findViewById<TextView>(R.id.name)
+        val name = convertView!!.findViewById<TextView>(R.id.msg_name)
             name.text=items[position].senderInfo
 
         //can see liker's age in listview
-        val text=convertView!!.findViewById<TextView>(R.id.age)
+        val text=convertView!!.findViewById<TextView>(R.id.msg_content)
             text.text=items[position].sendTxt
 
         return convertView!!
