@@ -27,19 +27,20 @@
         tools:layout_editor_absoluteX="48dp">
 
         <ImageView
-            android:id="@+id/logout"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/small_cherry"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/mylikeBtn_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="0dp"
+
+            android:background="@drawable/my_like" />
 
         <ImageView
             android:id="@+id/filter_samelocation"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="59dp"
+            android:layout_height="57dp"
             android:layout_margin="10dp"
             android:background="@drawable/same_lo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -59,8 +60,8 @@
 
         <ImageView
             android:id="@+id/filter_allocation"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="57dp"
             android:layout_margin="10dp"
             android:background="@drawable/all_lo"
             android:text="모든 지역"
@@ -73,7 +74,8 @@
             android:id="@+id/mypage"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/myfrofile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

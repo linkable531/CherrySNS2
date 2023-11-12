@@ -27,6 +27,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.bumptech.glide.Glide
 import com.example.cherry.auth.UserDataModel
+import com.example.cherry.message.MyLikeListActivity
 import com.example.cherry.message.MyMsgActivity
 import com.example.cherry.setting.MyPageActivity
 import com.example.cherry.setting.SettingActivity
@@ -58,14 +59,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //logout option
-        val logout=findViewById<ImageView>(R.id.logout)
-        logout.setOnClickListener{
-            val auth= Firebase.auth
-            auth.signOut()
-
-            val intent_intro=Intent(this,IntroActivity::class.java)
-            startActivity(intent_intro)
+        //mylike btn
+        val mylikeBtn = findViewById<ImageView>(R.id.mylikeBtn_mypage)
+        mylikeBtn.setOnClickListener{
+            val intent=Intent(this, MyLikeListActivity::class.java)
+            startActivity(intent)
         }
 
         //mypage option

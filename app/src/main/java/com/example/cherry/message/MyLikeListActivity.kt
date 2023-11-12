@@ -56,34 +56,32 @@ class MyLikeListActivity : AppCompatActivity() {
         */
 
         //listview longclick
-        userListView.setOnItemLongClickListener { parent,view,position,id ->
+        userListView.setOnItemClickListener { parent,view,position,id ->
             checkMatching(likeUserList[position].uid.toString())
             getterUid = likeUserList[position].uid.toString()
-
-            return@setOnItemLongClickListener(true)
         }
         //sort by name
         val sortBtnByName = findViewById<ImageView>(R.id.sortbyname)
         sortBtnByName.setOnClickListener{
-            sortbyname()
+            sortbynamedown()
         }
 
         //sort by age
         val sortBtnByAge = findViewById<ImageView>(R.id.sortbyage)
         sortBtnByAge.setOnClickListener{
-            sortbyage()
+            sortbyagedown()
         }
 
         //sort by name down
         val sortBtnByNameDown = findViewById<ImageView>(R.id.sortbynameDown)
         sortBtnByNameDown.setOnClickListener{
-            sortbynamedown()
+            sortbyname()
         }
 
         //sort by age down
         val sortBtnByAgeDown = findViewById<ImageView>(R.id.sortbyageDown)
         sortBtnByAgeDown.setOnClickListener{
-            sortbyagedown()
+            sortbyage()
         }
 
         //back
@@ -127,7 +125,7 @@ class MyLikeListActivity : AppCompatActivity() {
 
                 //if liker is empty
                 if(dataSnapshot.children.count() == 0){
-                    Toast.makeText(this@MyLikeListActivity, "상대방이 좋아한 사용자가 없습니다!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MyLikeListActivity, "매칭된 상대가 아닙니다!", Toast.LENGTH_SHORT).show()
                 }
                 //if liker hava data
                 else {
@@ -137,12 +135,7 @@ class MyLikeListActivity : AppCompatActivity() {
                         if(dataModel.key.toString().equals(uid))
                             check_matching=true
                     }
-
-                    //make matching message by result
                     if(check_matching){
-                        Toast.makeText(this@MyLikeListActivity, "매칭된 상대입니다!", Toast.LENGTH_SHORT)
-                            .show()
-
                         //dialog
                         showDialog()
                     }

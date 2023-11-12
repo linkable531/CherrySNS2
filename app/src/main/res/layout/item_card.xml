@@ -16,45 +16,85 @@
             android:layout_height="463dp"
             />
 
-        <TextView
-            android:id="@+id/itemName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/frame_myname">
 
-        <TextView
-            android:id="@+id/itemGender"
-            android:text="Gender"
-            android:layout_margin="5dp"
-            android:textSize="25sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="40dp"
+                android:text="myname"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/itemCity"
-            android:text="City"
-            android:layout_margin="5dp"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/frame_gender">
 
-        <TextView
-            android:id="@+id/itemAge"
-            android:text="Age"
-            android:layout_margin="5dp"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/itemGender"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="40dp"
+                android:text="mygender"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/frame_location">
+
+            <TextView
+                android:id="@+id/itemCity"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="40dp"
+                android:text="mylocation"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/frame_age">
+
+            <TextView
+                android:id="@+id/itemAge"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="40dp"
+                android:text="myage"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <FrameLayout

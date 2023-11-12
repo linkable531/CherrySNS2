@@ -104,12 +104,12 @@
             android:background="@drawable/back" />
 
         <ImageView
-            android:id="@+id/mylikeBtn_mypage"
+            android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="270dp"
-            android:background="@drawable/my_like"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="230dp"
+            android:background="@drawable/logout"/>
     </LinearLayout>
 
 

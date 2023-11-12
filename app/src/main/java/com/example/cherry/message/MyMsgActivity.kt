@@ -48,9 +48,11 @@ class MyMsgActivity : AppCompatActivity() {
         //get msg
         getMyMsg()
 
+        //delete
         listview.setOnItemClickListener { parent,view,position,id ->
             showDeleteDialog(msgList[position])
         }
+
         //search
         val searchBtn = findViewById<ImageView>(R.id.search_button)
         searchBtn.setOnClickListener{
@@ -74,8 +76,6 @@ class MyMsgActivity : AppCompatActivity() {
         msgBuilder.setMessage("대화내역을 삭제하시겠습니까?")
         msgBuilder.setPositiveButton("삭제", DialogInterface.OnClickListener(){ dialogInterface, i ->
             val messageUid = data.msgUid // 해당 메시지의 고유 식별자
-
-            Toast.makeText(this@MyMsgActivity, messageUid, Toast.LENGTH_LONG).show()
             // Firebase에서 해당 메시지를 삭제
             FirebaseRef.userMsgRef.child(uid!!).child(messageUid).setValue(null)
 

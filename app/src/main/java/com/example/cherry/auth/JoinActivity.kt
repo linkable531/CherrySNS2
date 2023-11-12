@@ -13,7 +13,11 @@ import com.google.firebase.ktx.Firebase
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.cherry.utils.FirebaseRef
@@ -52,25 +56,43 @@ class JoinActivity : AppCompatActivity() {
             finish()
         }
 
+        //spinner 1
+        var location : String = ""
+        var spinner1:Spinner = findViewById(R.id.spinner1)
+        var spinner_item_1 = resources.getStringArray(R.array.spinner1_arr)
+        var spinner_Adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinner_item_1)
+
+        spinner1.adapter = spinner_Adapter
+        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                location = spinner_item_1[position]
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
+
+        //spinner 2
+
+
         //회원가입btn_press
         val joinBtn=findViewById<ImageView>(R.id.button7)
-        joinBtn.setOnClickListener{
-            val email=findViewById<EditText>(R.id.signup_Email).text.toString()
-            val password=findViewById<EditText>(R.id.signup_pw).text.toString()
-            val gender=findViewById<EditText>(R.id.signup_gender).text.toString()
-            val name=findViewById<EditText>(R.id.signup_name).text.toString()
-            val location=findViewById<EditText>(R.id.signup_location).text.toString()
-            val age=findViewById<EditText>(R.id.signup_age).text.toString()
+        joinBtn.setOnClickListener {
+            val email = findViewById<EditText>(R.id.signup_Email).text.toString()
+            val password = findViewById<EditText>(R.id.signup_pw).text.toString()
+            val gender = findViewById<EditText>(R.id.signup_gender).text.toString()
+            val name = findViewById<EditText>(R.id.signup_name).text.toString()
+            val age = findViewById<EditText>(R.id.signup_age).text.toString()
 
             //new_account
-            auth.createUserWithEmailAndPassword(email,password)
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     //sucess
                     if (task.isSuccessful) {
                         Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
 
-                        val user=auth.currentUser
-                        val uid=user?.uid.toString()
+                        val user = auth.currentUser
+                        val uid = user?.uid.toString()
 
                         //make usermodel
                         val userModel = UserDataModel(
@@ -87,15 +109,18 @@ class JoinActivity : AppCompatActivity() {
 
                         uploadImage(uid)
 
-                        val intent = Intent(this,MainActivity::class.java)
+                        val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     }
                     //fail
                     else {
-                        Toast.makeText(this, "회원가입 실패!: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "회원가입 실패!: ${task.exception?.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
-
         }
     }
 

@@ -9,11 +9,13 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.cherry.MainActivity
 import com.example.cherry.R
+import com.example.cherry.auth.IntroActivity
 import com.example.cherry.auth.UserDataModel
 import com.example.cherry.message.MyLikeListActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -27,10 +29,13 @@ class MyPageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_page)
 
         //mylike btn
-        val mylikeBtn = findViewById<ImageView>(R.id.mylikeBtn_mypage)
-        mylikeBtn.setOnClickListener{
-            val intent=Intent(this, MyLikeListActivity::class.java)
-            startActivity(intent)
+        val mylogoutBtn = findViewById<ImageView>(R.id.logoutBtn)
+        mylogoutBtn.setOnClickListener{
+            val auth=Firebase.auth
+            auth.signOut()
+
+            val intent_Intro=Intent(this, IntroActivity::class.java)
+            startActivity(intent_Intro)
         }
 
         //back btn
