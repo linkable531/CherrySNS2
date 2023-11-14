@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Chungcheong_arr">
+        <item>논산</item>
+        <item>대구</item>
+        <item>대전</item>
+        <item>서산</item>
+        <item>세종</item>
+        <item>제천</item>
+        <item>천안</item>
+        <item>청주</item>
+        <item>충남</item>
+        <item>충주</item>
+    </string-array>
+</resources>

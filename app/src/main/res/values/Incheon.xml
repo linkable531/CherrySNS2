@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Incheon_arr">
+        <item>검단</item>
+        <item>송도</item>
+        <item>영종</item>
+        <item>계산</item>
+        <item>구월</item>
+        <item>논현로드</item>
+        <item>논현</item>
+        <item>부평</item>
+        <item>삼산</item>
+        <item>서창</item>
+        <item>송도</item>
+        <item>완정역</item>
+        <item>인하대</item>
+        <item>청라</item>
+    </string-array>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Gangwon_arr">
+        <item>강릉</item>
+        <item>원주</item>
+        <item>춘천</item>
+    </string-array>
+</resources>
