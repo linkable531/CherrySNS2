@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.cherry.MainActivity
 import com.example.cherry.R
 import com.example.cherry.auth.UserDataModel
+import com.example.cherry.setting.MyPageActivity
 import com.example.cherry.setting.SettingActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
@@ -60,6 +61,8 @@ class MyLikeListActivity : AppCompatActivity() {
             checkMatching(likeUserList[position].uid.toString())
             getterUid = likeUserList[position].uid.toString()
         }
+
+        /*
         //sort by name
         val sortBtnByName = findViewById<ImageView>(R.id.sortbyname)
         sortBtnByName.setOnClickListener{
@@ -88,6 +91,28 @@ class MyLikeListActivity : AppCompatActivity() {
         val backBtn = findViewById<ImageView>(R.id.back)
         backBtn.setOnClickListener{
             val intent_main = Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
+        }
+        */
+
+        //mypage option
+        val mypage=findViewById<ImageView>(R.id.my_like_mypage)
+        mypage.setOnClickListener{
+            val intent_mypage=Intent(this, MyPageActivity::class.java)
+            startActivity(intent_mypage)
+        }
+
+        //chatting option
+        val chatting=findViewById<ImageView>(R.id.my_like_chatting)
+        chatting.setOnClickListener{
+            val intent_chatting=Intent(this, MyMsgActivity::class.java)
+            startActivity(intent_chatting)
+        }
+
+        //main option
+        val main=findViewById<ImageView>(R.id.my_like_main_btn)
+        main.setOnClickListener{
+            val intent_main=Intent(this, MainActivity::class.java)
             startActivity(intent_main)
         }
     }

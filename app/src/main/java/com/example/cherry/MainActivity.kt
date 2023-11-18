@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent_chatting)
         }
 
+        /*
         //set cardstackview same location
         val sameLocationBtn=findViewById<ImageView>(R.id.filter_samelocation)
         sameLocationBtn.setOnClickListener {
@@ -91,6 +92,8 @@ class MainActivity : AppCompatActivity() {
         allLocationBtn.setOnClickListener {
             getUserDataList(UserGender)
         }
+        */
+
 
         //cardstackview
         val cardStackView = findViewById<CardStackView>(R.id.cardStackView)

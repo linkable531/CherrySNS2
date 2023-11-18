@@ -23,6 +23,7 @@
 
         <EditText
             android:id="@+id/editID"
+            android:fontFamily="@font/cherry_font"
             android:layout_width="279dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -35,6 +36,7 @@
 
         <EditText
             android:id="@+id/ediPassword"
+            android:fontFamily="@font/cherry_font"
             android:layout_width="279dp"
             android:layout_height="43dp"
             android:layout_gravity="center"
@@ -51,7 +53,7 @@
         <ImageView
             android:id="@+id/button2"
             android:layout_width="218dp"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:layout_gravity="center"
             android:background="@drawable/login_btn"
             android:textSize="24sp" />

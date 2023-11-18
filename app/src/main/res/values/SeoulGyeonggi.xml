@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Seoul_Gyeonggi">
+        <item>-</item>
         <item>고양</item>
         <item>광명</item>
         <item>광주</item>

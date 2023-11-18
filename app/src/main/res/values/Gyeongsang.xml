@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Gyeongsang_arr">
+        <item>-</item>
         <item>거제</item>
         <item>경북</item>
         <item>경산</item>

@@ -12,6 +12,7 @@ import com.example.cherry.R
 import com.example.cherry.auth.IntroActivity
 import com.example.cherry.auth.UserDataModel
 import com.example.cherry.message.MyLikeListActivity
+import com.example.cherry.message.MyMsgActivity
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
 import com.google.android.gms.tasks.OnCompleteListener
@@ -38,9 +39,32 @@ class MyPageActivity : AppCompatActivity() {
             startActivity(intent_Intro)
         }
 
+        /*
         //back btn
         val mybackBtn = findViewById<ImageView>(R.id.backBtn_mypage)
         mybackBtn.setOnClickListener{
+            val intent_main=Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
+        }
+        */
+
+        //chatting option
+        val chatting=findViewById<ImageView>(R.id.my_page_chatting)
+        chatting.setOnClickListener{
+            val intent_chatting=Intent(this, MyMsgActivity::class.java)
+            startActivity(intent_chatting)
+        }
+
+        //mylike btn
+        val mylikeBtn = findViewById<ImageView>(R.id.my_page_mylikeBtn_mypage)
+        mylikeBtn.setOnClickListener{
+            val intent=Intent(this, MyLikeListActivity::class.java)
+            startActivity(intent)
+        }
+
+        //main option
+        val main=findViewById<ImageView>(R.id.my_page_main_btn)
+        main.setOnClickListener{
             val intent_main=Intent(this, MainActivity::class.java)
             startActivity(intent_main)
         }

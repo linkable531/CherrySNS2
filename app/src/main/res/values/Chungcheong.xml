@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Chungcheong_arr">
+        <item>-</item>
         <item>논산</item>
         <item>대구</item>
         <item>대전</item>

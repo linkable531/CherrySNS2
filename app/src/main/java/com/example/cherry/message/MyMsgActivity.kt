@@ -24,6 +24,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.cherry.MainActivity
 import com.example.cherry.utils.MyInfo
 import com.example.cherry.message.MyLikeListActivity
+import com.example.cherry.setting.MyPageActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.UUID
@@ -53,16 +54,40 @@ class MyMsgActivity : AppCompatActivity() {
             showDeleteDialog(msgList[position])
         }
 
+
         //search
         val searchBtn = findViewById<ImageView>(R.id.search_button)
         searchBtn.setOnClickListener{
             searchUser()
         }
 
+        /*
         //back
         val backBtn=findViewById<ImageView>(R.id.back_my_msg)
         backBtn.setOnClickListener{
             val intent_main = Intent(this, MainActivity::class.java)
+            startActivity(intent_main)
+        }
+        */
+
+        //mypage option
+        val mypage=findViewById<ImageView>(R.id.my_msg_mypage)
+        mypage.setOnClickListener{
+            val intent_mypage=Intent(this, MyPageActivity::class.java)
+            startActivity(intent_mypage)
+        }
+
+        //mylike btn
+        val mylikeBtn = findViewById<ImageView>(R.id.my_msg_mylikeBtn_mypage)
+        mylikeBtn.setOnClickListener{
+            val intent=Intent(this, MyLikeListActivity::class.java)
+            startActivity(intent)
+        }
+
+        //main option
+        val main=findViewById<ImageView>(R.id.my_msg_main_btn)
+        main.setOnClickListener{
+            val intent_main=Intent(this, MainActivity::class.java)
             startActivity(intent_main)
         }
     }

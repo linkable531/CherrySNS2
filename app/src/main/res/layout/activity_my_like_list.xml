@@ -15,7 +15,64 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:background="@drawable/toolbar_3"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-4dp">
 
+        <ImageView
+            android:id="@+id/my_like_main_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/main" />
+
+        <ImageView
+            android:id="@+id/my_like_mylikeBtn_mypage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/my_like" />
+
+        <ImageView
+            android:id="@+id/my_like_chatting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/talk"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/my_like_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/myfrofile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+
+    <!--
     <ImageView
         android:id="@+id/sortbyageDown"
         android:layout_width="wrap_content"
@@ -93,5 +150,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userListView"
         app:layout_constraintVertical_bias="0.414" />
-
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

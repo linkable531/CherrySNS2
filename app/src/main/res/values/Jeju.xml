@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Jeju_arr">
+        <item>-</item>
         <item>신제주</item>
         <item>제주 시청</item>
     </string-array>

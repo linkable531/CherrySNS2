@@ -48,4 +48,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="496dp"
+        android:layout_height="200dp"
+        android:src="@drawable/toolbar_demo"
+        tools:layout_editor_absoluteX="-43dp"
+        tools:layout_editor_absoluteY="596dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

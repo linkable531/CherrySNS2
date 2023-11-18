@@ -70,7 +70,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //seoul,gyeonggi
                 if(location=="서울/경기"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Seoul_Gyeonggi)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -88,7 +87,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //incheon
                 if(location=="인천"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Incheon_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -106,7 +104,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //gangwon
                 if(location=="강원도"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Gangwon_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -124,7 +121,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //jeolla
                 if(location=="전라도"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Jeolla_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -142,7 +138,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //chungcheong
                 if(location=="충청도"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Chungcheong_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -160,7 +155,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //gyeongsang
                 if(location=="경상도"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Gyeongsang_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 
@@ -178,7 +172,6 @@ class JoinActivity : AppCompatActivity() {
 
                 //jeju
                 if(location=="제주도"){
-                    location = location.plus(" ")
                     var spinner_item_2 = resources.getStringArray(R.array.Jeju_arr)
                     var spinner_Adapter_2 = ArrayAdapter(this@JoinActivity, android.R.layout.simple_spinner_dropdown_item, spinner_item_2)
 

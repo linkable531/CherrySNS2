@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Incheon_arr">
+        <item>-</item>
         <item>검단</item>
         <item>송도</item>
         <item>영종</item>

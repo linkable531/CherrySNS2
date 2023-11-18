@@ -3,11 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="15dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".setting.MyPageActivity">
+
+    <ImageView
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:background="@drawable/logout" />
 
     <ImageView
         android:background="@drawable/profile"
@@ -49,6 +56,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="40dp"
             android:text="myname"
+            android:fontFamily="@font/cherry_font"
             android:textColor="@color/black"
             android:textSize="20dp" />
     </LinearLayout>
@@ -68,6 +76,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="40dp"
             android:text="myemail"
+            android:fontFamily="@font/cherry_font"
             android:textColor="@color/black"
             android:textSize="20dp" />
     </LinearLayout>
@@ -87,10 +96,69 @@
             android:layout_marginTop="15dp"
             android:layout_marginLeft="40dp"
             android:text="mylocation"
+            android:fontFamily="@font/cherry_font"
             android:textColor="@color/black"
             android:textSize="20dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:background="@drawable/toolbar_3"
+        android:orientation="horizontal"
+        android:layout_marginTop="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-4dp">
+
+        <ImageView
+            android:id="@+id/my_page_main_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/main" />
+
+        <ImageView
+            android:id="@+id/my_page_mylikeBtn_mypage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+
+            android:background="@drawable/my_like" />
+
+        <ImageView
+            android:id="@+id/my_page_chatting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/talk"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/my_page_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/myfrofile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+    <!--
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -102,15 +170,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/back" />
-
-        <ImageView
-            android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="230dp"
-            android:background="@drawable/logout"/>
     </LinearLayout>
-
+    -->
 
 </LinearLayout>
