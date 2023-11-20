@@ -5,28 +5,21 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
 import com.example.cherry.R
-import com.example.cherry.auth.UserDataModel
 import com.example.cherry.utils.FirebaseRef
 import com.example.cherry.utils.FirebaseUtils
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import com.example.cherry.MainActivity
 import com.example.cherry.utils.MyInfo
-import com.example.cherry.message.MyLikeListActivity
 import com.example.cherry.setting.MyPageActivity
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import java.util.UUID
 
 class MyMsgActivity : AppCompatActivity() {
