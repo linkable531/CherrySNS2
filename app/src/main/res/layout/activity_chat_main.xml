@@ -16,6 +16,7 @@
         <EditText
             android:id="@+id/search_EditText"
             android:layout_marginLeft="20dp"
+            android:fontFamily="@font/cherry_font"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="이름"/>

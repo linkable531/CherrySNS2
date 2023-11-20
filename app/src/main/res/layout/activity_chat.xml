@@ -8,6 +8,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_recyclerView"
+        android:fontFamily="@font/cherry_font"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/input_layout"
@@ -15,6 +16,7 @@
 
     <LinearLayout
         android:id="@+id/input_layout"
+        android:fontFamily="@font/cherry_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -25,6 +27,7 @@
         <EditText
             android:id="@+id/message_edit"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/cherry_font"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_weight="85"
@@ -35,6 +38,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/send_btn"
             android:layout_width="30dp"
+            android:fontFamily="@font/cherry_font"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
