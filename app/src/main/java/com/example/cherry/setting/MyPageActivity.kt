@@ -1,12 +1,12 @@
 package com.example.cherry.setting
-
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.cherry.MainActivity
 import com.example.cherry.R
 import com.example.cherry.auth.IntroActivity
 import com.example.cherry.auth.UserDataModel
@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+
 
 class MyPageActivity : AppCompatActivity() {
     private val uid = FirebaseUtils.getUid()
@@ -64,8 +65,16 @@ class MyPageActivity : AppCompatActivity() {
         //main option
         val main=findViewById<ImageView>(R.id.my_page_main_btn)
         main.setOnClickListener{
-            val intent_main=Intent(this, MainActivity::class.java)
+            val intent_main = Intent(this, com.example.cherry.MainActivity::class.java)
             startActivity(intent_main)
+        }
+
+        val webviewBtn = findViewById<Button>(R.id.WebView_btn)
+        webviewBtn.setOnClickListener {
+            val webUrl = "https://www.instagram.com/accounts/login/"
+            val intent = Intent(applicationContext, WebViewActivity::class.java)
+            intent.putExtra("WEB_URL", webUrl)
+            startActivity(intent)
         }
 
         getMyData()
@@ -105,5 +114,4 @@ class MyPageActivity : AppCompatActivity() {
         }
         FirebaseRef.userInfoRef.child(uid).addValueEventListener(postListener)
     }
-
 }
