@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
     //firebase
     id("com.google.gms.google-services")
 }
@@ -73,4 +72,5 @@ dependencies {
     // coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.3")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.3")
+
 }
